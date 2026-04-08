@@ -42,6 +42,11 @@ nav a:hover {
   color: #9b59b6;
 }
 
+nav a.active {
+  color: #9b59b6;
+  border-bottom: 2px solid #9b59b6;
+}
+
 .hero {
   min-height: 100vh;
   display: flex;
@@ -210,4 +215,55 @@ footer {
   border-top: 1px solid #2a2a2a;
   color: #b0a9a0;
   font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .page {
+    width: 100%;
+  }
+
+  .cards {
+    gap: 10px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h2 {
+  animation: fadeIn 1s ease;
+}
+
+.hero p {
+  animation: fadeIn 1s ease 0.3s both;
+}
+
+.hero a {
+  animation: fadeIn 1s ease 0.6s both;
 }
