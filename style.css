@@ -98,6 +98,15 @@ nav a.active {
   color: #b0a9a0;
 }
 
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #9b59b6;
+  margin-bottom: 24px;
+}
+
 .skills {
   padding: 80px 40px;
   text-align: center;
