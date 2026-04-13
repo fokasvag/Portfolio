@@ -25,6 +25,16 @@ header {
   top: 0;
 }
 
+header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+header h1 span {
+  color: #9b59b6;
+}
+
 body {
   padding-top: 90px;
 }
@@ -77,6 +87,25 @@ nav a.active {
 
 .hero a:hover {
   background-color: #7d3c98;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #9b59b6;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 2px solid #9b59b6;
+}
+
+.btn-secondary:hover {
+  background-color: #9b59b6;
+  color: #e8e4dc;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
 }
 
 .about {
@@ -224,6 +253,16 @@ footer {
   border-top: 1px solid #2a2a2a;
   color: #b0a9a0;
   font-size: 14px;
+}
+
+footer a {
+  color: #9b59b6;
+  text-decoration: none;
+  margin-left: 16px;
+}
+
+footer a:hover {
+  color: #e8e4dc;
 }
 
 @media (max-width: 768px) {
