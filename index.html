@@ -2,6 +2,14 @@
 <html lang="el">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Vaggelis Fokas - Front-End Developer & UI/UX Designer based in Kavala, Greece. Building modern websites and digital experiences."
+    />
+    <meta
+      name="keywords"
+      content="front-end developer, UI/UX designer, web developer, Kavala, Greece"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vaggelis fokas</title>
     <link
@@ -11,6 +19,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="progress-bar"></div>
+    <button id="back-to-top">↑</button>
     <header>
       <h1>VF<span>.</span></h1>
       <nav>
@@ -24,7 +34,7 @@
     <main>
       <section id="hero" class="hero">
         <h2>Hi I'm Vaggelis Fokas</h2>
-        <p>Front-End Developer & UI/UX DESIGNER</p>
+        <p id="typing"></p>
         <div class="hero-buttons">
           <a href="#projects">View my work</a>
           <a href="#contact" class="btn-secondary">Contact me</a>
@@ -117,6 +127,38 @@
               .classList.add("active");
           }
         });
+      });
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        document.getElementById("progress-bar").style.width = progress + "%";
+      });
+      const text = "Front-End Developer & UI/UX Designer";
+      let index = 0;
+
+      function typeWriter() {
+        if (index < text.length) {
+          document.getElementById("typing").innerHTML += text.charAt(index);
+          index++;
+          setTimeout(typeWriter, 80);
+        }
+      }
+
+      typeWriter();
+      const backToTop = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.style.display = "block";
+        } else {
+          backToTop.style.display = "none";
+        }
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
     </script>
   </body>
