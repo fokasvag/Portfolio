@@ -76,8 +76,13 @@
 
       <section id="projects" class="projects">
         <h2>Projects</h2>
+        <div class="filter-buttons">
+          <button data-filter="all">All</button>
+          <button data-filter="css">CSS</button>
+          <button data-filter="javascript">JavaScript</button>
+        </div>
         <div class="pages">
-          <div class="page">
+          <div class="page" data-category="css">
             <h3>Noir Bistro</h3>
             <p>A dark premium restaurant landing page</p>
             <a href="https://fokasvag.github.io/noir-bistro" target="_blank"
@@ -85,12 +90,20 @@
             >
           </div>
 
-          <div class="page">
+          <div class="page" data-category="javascript">
             <h3>Portfolio</h3>
             <p>My personal portfolio website</p>
             <a href="https://fokasvag.github.io/Portfolio" target="_blank"
               >View project</a
             >
+          </div>
+
+          <div class="page coming-soon" data-category="css">
+            <h3>Coming Soon 🔒</h3>
+            <p>
+              Ένα νέο, συναρπαστικό project βρίσκεται αυτή τη στιγμή υπό
+              ανάπτυξη. Μείνετε συντονισμένοι!
+            </p>
           </div>
         </div>
       </section>
@@ -159,6 +172,23 @@
 
       backToTop.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+      const filterButtons = document.querySelectorAll(".filter-buttons button");
+      const projectCards = document.querySelectorAll(".page");
+      filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          const filter = button.getAttribute("data-filter");
+
+          projectCards.forEach(function (card) {
+            if (filter === "all") {
+              card.style.display = "block";
+            } else if (card.getAttribute("data-category") === filter) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
       });
     </script>
   </body>
